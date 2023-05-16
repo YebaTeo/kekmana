@@ -17,7 +17,7 @@ public class clsLogin extends Koneksi{
     public void Masuk()
     {
         try{
-            sql = "SELECT * FROM login WHERE Username = ? AND Password = ?";
+            sql = "SELECT * FROM tbllogin WHERE Username = ? AND Password = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1, mUsername);
             pst.setString(2, String.valueOf(mPassword));

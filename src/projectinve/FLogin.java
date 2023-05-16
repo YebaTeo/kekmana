@@ -161,7 +161,7 @@ public class FLogin extends javax.swing.JFrame {
             log.mPassword = PLogin.getText();
             try
             {
-                log.sql = "SELECT * FROM login WHERE Username = ? and Password = ?";
+                log.sql = "SELECT * FROM tbllogin WHERE Username = ? and Password = ?";
                 PreparedStatement pst = log.conn.prepareStatement(log.sql);
                 pst.setString(1, log.mUsername);
                 pst.setString(2, log.mPassword);
@@ -169,12 +169,12 @@ public class FLogin extends javax.swing.JFrame {
                 if(rs.next())
                 {
                     if(ULogin.getText().equals(rs.getString("Username")) && PLogin.getText().equals(rs.getString("Password"))
-                            && (rs.getString("Akses").equals("admin"))){
+                            && (rs.getString("akses").equals("admin"))){
                         FHome home = new FHome();
                         home.setVisible(true);
                         this.dispose();                        
                     }else if(ULogin.getText().equals(rs.getString("Username")) && PLogin.getText().equals(rs.getString("Password"))
-                            && (rs.getString("Akses").equals("pengguna"))){
+                            && (rs.getString("akses").equals("pengguna"))){
                         new FHome().setVisible(true);
                         FHome.jButton2.setEnabled(false);
                         dispose();
@@ -193,7 +193,7 @@ public class FLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Saat Login");
                 System.out.println(e.getMessage());
             }
-            log.sql = "SELECT * FROM login WHERE Username = '" + ULogin.getText() + "' AND Password = '" + PLogin.getText() + "'";
+            log.sql = "SELECT * FROM tbllogin WHERE Username = '" + ULogin.getText() + "' AND Password = '" + PLogin.getText() + "'";
             Statement stat = log.conn.createStatement();
             ResultSet res = stat.executeQuery(log.sql);
             int i = res.getRow();

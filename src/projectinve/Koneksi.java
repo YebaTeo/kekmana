@@ -25,7 +25,7 @@ public class Koneksi {
     public static Connection getKoneksi(){
         if (koneksi == null){
             try{
-                String url = "jdbc:mysql://localhost:3306/toko_atk";
+                String url = "jdbc:mysql://localhost:3306/sembako";
                 String user = "root";
                 String password = "";
                 DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
